@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	n "shazam-go/pkg/overflow"
 	"strings"
 	"time"
+
 	tele "gopkg.in/telebot.v3"
 )
 
@@ -22,7 +24,7 @@ var userData = make(map[int64]string)
 
 func main() {
 	pref := tele.Settings{
-		Token:  "5555627299:AAGD54B6OMsphWmtI5a6o0Mxcj6Vxt_v_qE",
+		Token:  os.Getenv("TELE_TOKEN"),
 		Poller: &tele.LongPoller{Timeout: 10 * time.Second},
 	}
 
